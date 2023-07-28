@@ -1,0 +1,12 @@
+/ADDITIONAL-TOPICS
+FUTURE-TOPICS
+#.gitignore
+
+# File init mod
+*.mod
+
+# File excute binary
+lab01
+lamda.zip
+secret_personal_game
+go.sum
