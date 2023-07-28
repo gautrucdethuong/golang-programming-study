@@ -1,51 +1,45 @@
 package main
 
-// import (
-// 	"bufio"
-// 	"fmt"
-// 	"log"
+import (
+	"fmt"
+	"math/rand"
+)
 
-// 	// "go/scanner"
-// 	"math/rand"
-// 	"os"
-// 	"strconv"
-// 	// "strings"
-// )
+func randomStepUser() int {
+	return rand.Intn(3)
+}
 
-// func main() {
-// 	var personZero, personOne, personTwo string
-// 	personZero, personOne, personTwo = "Max", "Alex", "Tom"
+func main() {
+	// var personZero, personOne, personTwo string
+	// personZero, personOne, personTwo = "Max", "Alex", "Tom"
+	persons := [3]string{"Max", "Alex", "Tom"}
 
-// 	fmt.Println("Number of secret person 0: Max, 1: Alex, 2: Tom")
+	fmt.Println("Number of secret person 0: Max, 1: Alex, 2: Tom")
 
-// 	// fmt.Println(rand.Intn(3))
-// 	secretPersonNumber := rand.Intn(3)
-// 	scanner := bufio.NewScanner(os.Stdin)
+	// fmt.Println(rand.Intn(3))
+	secretPersonNumber := randomStepUser()
+	var input int
+	// scanner := bufio.NewScanner(os.Stdin)
 
-// 	fmt.Printf("Please enter your answer with numer 0 - 2: ")
-// 	scanner.Scan()
-// 	input := scanner.Text()
-// 	answer, err := strconv.Atoi(input)
+	for { // Infinite Loop = While
+		fmt.Printf("Please enter your answer with numer 0 - 2: ")
+		fmt.Scan(&input)
 
-// 	if err != nil {
-// 		log.Panic(err)
-// 	}
-// 	// fmt.Println(out)
-// 	if answer == secretPersonNumber {
-// 		if secretPersonNumber == 0 {
-// 			fmt.Printf("Congratulations!! You answer is correct, %s is the secret person.\n", personZero)
-// 		} else if secretPersonNumber == 1 {
-// 			fmt.Printf("Congratulations!! You answer is correct, %s is the secret person.\n", personOne)
-// 		} else if secretPersonNumber == 2 {
-// 			fmt.Printf("Congratulations!! You answer is correct, %s is the secret person.\n", personTwo)
-// 		}
-// 	} else {
-// 		if secretPersonNumber == 0 {
-// 			fmt.Printf("Sorry!! You answer is incorrect, 0: %s is the secret person.\n", personZero)
-// 		} else if secretPersonNumber == 1 {
-// 			fmt.Printf("Sorry!! You answer is incorrect, 1: %s is the secret person.\n", personOne)
-// 		} else if secretPersonNumber == 2 {
-// 			fmt.Printf("Sorry!! You answer is incorrect, 2: %s is the secret person.\n", personTwo)
-// 		}
-// 	}
-// }
+		if input >= 0 && input <= 2 {
+			break
+		}
+	}
+	// scanner.Scan()
+	// input := scanner.Text()
+	// answer, err := strconv.Atoi(input)
+
+	// if err != nil {
+	// 	log.Panic(err)
+	// }
+	// fmt.Println(out)
+	if input == secretPersonNumber {
+		fmt.Printf("Congratulations!! You answer is correct, %s is the secret person.\n", persons[input])
+	} else {
+		fmt.Printf("Sorry!! You answer is incorrect, %d is the secret person.\n", secretPersonNumber)
+	}
+}
