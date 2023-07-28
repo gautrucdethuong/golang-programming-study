@@ -1,3 +1,5 @@
+https://go.dev/
+
 1. execute binary file -> GOOS=linux go build -o hello 
 go mod init [module-path]
 2. format và style guidelines -> go install golang.org/x/lint/golint@latest || after run: golint .
